@@ -11,6 +11,9 @@ load_dotenv()
 
 pinecone.init(api_key=os.getenv('PINECONE_API_KEY'))
 
+# uncomment when file deployed
+# pinecone.init(api_key="YOUR_API_KEY_HERE")
+
 def save_artist_epk(artist_name, bio, photos, music_links, social_links):
   # Combine all artist data into a single Python dictionary
   epk = {
