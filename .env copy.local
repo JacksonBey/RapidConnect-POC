@@ -1,0 +1,2 @@
+# rename file to .env.local
+PINECONE_API_KEY=
