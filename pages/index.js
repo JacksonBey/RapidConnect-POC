@@ -18,6 +18,7 @@ export default function Home() {
             RapidConnect-POC
         </h1>
         <Link href="/form">GO TO FORM</Link>
+        <Link href="/template">GO TO Template</Link>
       </main>
 
       <footer className={styles.footer}>
