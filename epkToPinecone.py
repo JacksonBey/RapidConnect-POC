@@ -17,17 +17,20 @@ pinecone.init(api_key=os.getenv('PINECONE_API_KEY'))
 def save_artist_epk(artist_name, bio, photos, music_links, social_links):
   # Combine all artist data into a single Python dictionary
   epk = {
-  "name": artist_name,
-  "bio": bio,
-  "photos": photos,
-  "music_links": music_links,
-  "social_links": social_links
+    "name": artist_name,
+    "bio": bio,
+    "photos": photos,
+    "music_links": music_links,
+    "social_links": social_links
   }
   # Convert the Python dictionary to a JSON string
   epk_json = json.dumps(epk)
 
+  # Initialize Pinecone index
+  index = pinecone.Index('rapid-connect-poc')
+
   # Save the JSON string to Pinecone
-  pinecone.insert(items={artist_name: epk_json}
+  index.upsert(vectors=[{'id': artist_name, 'values': epk_json}]
 )
 
 # Close Pinecone Connection
