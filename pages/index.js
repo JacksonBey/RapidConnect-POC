@@ -9,8 +9,9 @@ export default function Home() {
       <Head>
         <title>RapidConnect-POC</title>
         <meta name="description" content="RapidConnect-POC" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />      
       </Head>
+      
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -31,6 +32,7 @@ export default function Home() {
           </span>
         </a>
       </footer>
+      
     </div>
   )
 }
