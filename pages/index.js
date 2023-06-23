@@ -9,14 +9,16 @@ export default function Home() {
       <Head>
         <title>RapidConnect-POC</title>
         <meta name="description" content="RapidConnect-POC" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />      
       </Head>
+      
 
       <main className={styles.main}>
         <h1 className={styles.title}>
             RapidConnect-POC
         </h1>
         <Link href="/form">GO TO FORM</Link>
+        <Link href="/template">GO TO Template</Link>
       </main>
 
       <footer className={styles.footer}>
@@ -31,6 +33,7 @@ export default function Home() {
           </span>
         </a>
       </footer>
+      
     </div>
   )
 }
