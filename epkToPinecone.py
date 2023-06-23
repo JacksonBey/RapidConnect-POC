@@ -26,6 +26,8 @@ def save_artist_epk(artist_name, bio, photos, music_links, social_links):
   # Convert the Python dictionary to a JSON string
   epk_json = json.dumps(epk)
 
+  bio_vector = text_to_vector(bio)
+
   # Initialize Pinecone index
   index = pinecone.Index('rapid-connect-poc')
 
@@ -44,3 +46,39 @@ pinecone.deinit()
 #  music_links=["http://example.com/music1.mp3", "http://example.com/music2.mp3"],
 #  social_links=["http://example.com/social1", "http://example.com/social2"]
 # )
+
+
+# note: 
+# "photos" are URLs to image data. To convert these into vectors, you would need to download the images and then use an image embedding model to create a vector representation of each image. Models like ResNet or VGG could be used for this purpose, but that would involve a substantial amount of additional code and complexity.
+# "music_links" and "social_links" are also URLs. The appropriate way to handle these would depend on the specifics of your application. If the URLs point to music files or social media profiles that you want to analyze, you would need to download and process the data at these URLs in a similar manner to the photos.
+
+
+# import torch
+# from transformers import BertModel, BertTokenizer
+
+# def text_to_vector(text):
+#     # Load pre-trained model tokenizer (vocabulary)
+#     tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+
+#     # Tokenize input
+#     text_tokens = tokenizer.encode(text, add_special_tokens=True)
+    
+#     # Convert list of tokens to tensor
+#     text_tokens_tensor = torch.tensor([text_tokens])
+
+#     # Load the pre-trained BERT model
+#     model = BertModel.from_pretrained('bert-base-uncased')
+
+#     # Put the model in "evaluation" mode
+#     model.eval()
+
+#     # Use the model to compute embeddings
+#     with torch.no_grad():
+#         outputs = model(text_tokens_tensor)
+    
+#     # The "pooler output" is a summary of the content, 
+#     # according to BERT model's pre-training.
+#     embeddings = outputs.pooler_output
+
+#     # Convert tensor to list and return
+#     return embeddings[0].tolist()
