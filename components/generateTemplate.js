@@ -179,7 +179,7 @@ const GenerateTemplate = ({ data }) => {
         </div>
 
         <h2 className="text-4xl font-bold uppercase text-customPurple mt-10">Book Now</h2>
-        <div className='my-6 px-1 flex'>
+        <div className='my-6 px-1 flex '>
             <button className='text-xs bg-customBlue text-white px-3 py-2 rounded-md mr-3'>
                 Live Show
             </button>
