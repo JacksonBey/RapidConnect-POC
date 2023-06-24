@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import GenerateTemplate from "../components/generateTemplate";
 
 function ArtistForm() {
   const initialState = {
@@ -15,6 +16,7 @@ function ArtistForm() {
   const [formState, setFormState] = useState(initialState);
   const [currentGenre, setCurrentGenre] = useState("");
   const [currentChar, setCurrentChar] = useState("");
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleInputChange = (event, field) => {
     setFormState({
@@ -53,8 +55,12 @@ function ArtistForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const payload = formState;
-    const response = await axios.post("/api/save_artist", payload);
+    // const response = await axios.post("/api/save_artist", payload);
     // handle response/error here...
+    // generateTemplate(payload);
+    setHasSubmitted(true);
+    console.log('HAS SUBMITTED')
+
   };
 
   return (
@@ -159,6 +165,13 @@ function ArtistForm() {
           </button>
         </div>
       </form>
+      <div className="w-full">
+        {hasSubmitted &&  
+          <div className="bg-white w-full h-screen p-10 m-5 rounded shadow-lg overflow-auto">
+            <GenerateTemplate data={formState}/>
+          </div>
+        }
+      </div>
     </div>
   );
 }
