@@ -5,34 +5,43 @@ function ArtistForm() {
   const initialState = {
     artist_name: "",
     bio: "",
-    genres: [""],
-    special_characteristics: [""],
+    genres: [],
+    special_characteristics: [],
     youtube: "",
     instagram: "",
     blog: ""
   };
 
   const [formState, setFormState] = useState(initialState);
+  const [currentGenre, setCurrentGenre] = useState("");
+  const [currentChar, setCurrentChar] = useState("");
 
-  const handleInputChange = (event, index, field) => {
-    const values = [...formState[field]];
-    values[index] = event.target.value;
+  const handleInputChange = (event, field) => {
     setFormState({
       ...formState,
-      [field]: values
+      [event.target.name]: event.target.value,
     });
   };
 
-  const handleAddFields = (field) => {
-    const values = [...formState[field]];
-    values.push("");
-    setFormState({
-      ...formState,
-      [field]: values
-    });
+  const handleBubbleInput = (event, field) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const values = [...formState[field]];
+      if (field === "genres") {
+        values.push(currentGenre);
+        setCurrentGenre("");
+      } else if (field === "special_characteristics") {
+        values.push(currentChar);
+        setCurrentChar("");
+      }
+      setFormState({
+        ...formState,
+        [field]: values
+      });
+    }
   };
 
-  const handleRemoveFields = (index, field) => {
+  const handleRemoveBubble = (index, field) => {
     const values = [...formState[field]];
     values.splice(index, 1);
     setFormState({
@@ -63,40 +72,67 @@ function ArtistForm() {
           </label>
           <textarea className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="bio" onChange={handleInputChange}></textarea>
         </div>
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Genres:
           </label>
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2" type="text" name="genres" value={currentGenre} onChange={(e) => setCurrentGenre(e.target.value)} onKeyPress={(e) => handleBubbleInput(e, "genres")} />
           {formState.genres.map((genre, index) => (
-            <div className="flex mt-2" key={index}>
-              <input className="shadow appearance-none border rounded w-[82%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="genres" value={genre} onChange={(event) => handleInputChange(event, index, "genres")} />
-              <button className="w-[7%] h-full ml-2 bg-[#829356] hover:bg-[#5c683d] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => handleAddFields("genres")}>
-                +
+            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-[#3C6478] rounded-full m-1" key={index}>
+              {genre}
+              <button className="ml-1" type="button" onClick={() => handleRemoveBubble(index, "genres")}>
+                X
               </button>
-              {formState.genres.length > 1 && (
-                <button className="w-[7%] h-full ml-2 bg-[#ad2a1a] hover:bg-[#9a2617] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => handleRemoveFields(index, "genres")}>
-                  -
-                </button>
-              )}
-            </div>
+            </span>
           ))}
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Special Characteristics:
           </label>
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2" type="text" name="special_characteristics" value={currentChar} onChange={(e) => setCurrentChar(e.target.value)} onKeyPress={(e) => handleBubbleInput(e, "special_characteristics")} />
           {formState.special_characteristics.map((characteristic, index) => (
-            <div className="flex mt-2" key={index}>
-              <input className="shadow appearance-none border rounded w-[82%] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="special_characteristics" value={characteristic} onChange={(event) => handleInputChange(event, index, "special_characteristics")} />
-              <button className="w-[7%] h-full w-[7%] h-full ml-2 bg-[#829356] hover:bg-[#5c683d] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => handleAddFields("special_characteristics")}>
-                +
+            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-[#3C6478] rounded-full m-1" key={index}>
+              {characteristic}
+              <button className="ml-1" type="button" onClick={() => handleRemoveBubble(index, "special_characteristics")}>
+                X
               </button>
-              {formState.special_characteristics.length > 1 && (
-                <button className="w-[7%] h-full ml-2 bg-[#ad2a1a] hover:bg-[#9a2617] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={() => handleRemoveFields(index, "special_characteristics")}>
-                  -
-                </button>
-              )}
-            </div>
+            </span>
+          ))}
+        </div> */}
+               <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Genres:
+            <span className="text-gray-600 text-xs ml-2">(Press Enter to submit a genre)</span>
+          </label>
+          <div className="relative">
+            <input className="shadow appearance-none border rounded w-full pb-0 mb-0 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2" type="text" name="genres" value={currentGenre} onChange={(e) => setCurrentGenre(e.target.value)} onKeyPress={(e) => handleBubbleInput(e, "genres")} />
+            <span className="absolute inset-y-0 right-0 mr-3 my-auto h-4" > &#9166;</span>
+          </div>
+          {formState.genres.map((genre, index) => (
+            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-[#0d3d56] hover:bg-[#3c6478] rounded-full m-1" key={index}>
+              
+              <button type="button" onClick={() => handleRemoveBubble(index, "genres")}>
+              {genre} <span className="ml-1" >X</span>
+              </button>
+            </span>
+          ))}
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Special Characteristics:
+            <span className="text-gray-600 text-xs ml-2">(Press Enter to submit a characteristic)</span>
+          </label>
+          <div className="relative">
+            <input className="shadow appearance-none border rounded w-full pb-0 mb-0 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-2" type="text" name="special_characteristics" value={currentChar} onChange={(e) => setCurrentChar(e.target.value)} onKeyPress={(e) => handleBubbleInput(e, "special_characteristics")} />
+            <span className="absolute inset-y-0 right-0 mr-3 my-auto h-4" > &#9166;</span> 
+          </div>
+          {formState.special_characteristics.map((characteristic, index) => (
+            <span className="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-[#0d3d56] hover:bg-[#3c6478] rounded-full m-1" key={index}>
+              <button type="button" onClick={() => handleRemoveBubble(index, "special_characteristics")}>
+              {characteristic}  <span className="ml-1">X</span>
+              </button>
+            </span>
           ))}
         </div>
         <div className="mb-4">
@@ -118,7 +154,7 @@ function ArtistForm() {
           <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="blog" onChange={handleInputChange} />
         </div>
         <div className="flex items-center justify-between">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          <button className="bg-[#0d3d56] hover:bg-[#3c6478] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Submit
           </button>
         </div>
