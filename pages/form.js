@@ -64,7 +64,7 @@ function ArtistForm() {
   };
 
   return (
-    <div className="container mx-auto mt-5">
+    <div className="container mx-auto mt-5 flex ">
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -165,7 +165,7 @@ function ArtistForm() {
           </button>
         </div>
       </form>
-      <div className="w-full">
+      <div className="">
         {hasSubmitted &&  
           <div className="bg-white w-full h-screen p-10 m-5 rounded shadow-lg overflow-auto">
             <GenerateTemplate data={formState}/>
