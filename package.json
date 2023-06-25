@@ -5,7 +5,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "uvicorn /Users/jacksonbeytebiere/Desktop/RapidConnect-POC/scripts/epkToPinecone:app --reload",
+    "dev:all": "concurrently \"yarn dev\" \"yarn server\""
   },
   "dependencies": {
     "axios": "^1.4.0",
