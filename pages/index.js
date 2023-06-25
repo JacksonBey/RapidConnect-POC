@@ -13,7 +13,7 @@ export default function Home() {
         <h1 className={`${styles.title} mb-[5rem]`}>
             RapidConnect-POC
         </h1>
-        <div className="flex justify-between mt-[2rem]">
+        <div className="flex justify-between mt-[2rem] ">
         <Link className="bg-[#0d3d56] hover:bg-[#3c6478] text-white font-bold py-2 px-4 mx-2 rounded focus:outline-none focus:shadow-outline" href="/form">Go To Form</Link>
         <Link className="bg-[#0d3d56] hover:bg-[#3c6478] text-white font-bold py-2 px-4 mx-2 rounded focus:outline-none focus:shadow-outline" href="/template">Go To Template</Link>
         </div>

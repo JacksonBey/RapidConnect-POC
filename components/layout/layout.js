@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
           <meta name="description" content="RapidConnect-POC" />
           <link rel="icon" href="/favicon.ico" />      
         </Head>
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen min-w-fit bg-gray-100">
             <Header />
             <main className="container mx-auto p-4">
                 {children}
