@@ -24,127 +24,129 @@ const GenerateTemplate = ({ data }) => {
         strategy="lazyOnload"
       />
       
-    <div className="flex mx-10 mt-14 ml-24 pb-20">
-    <div className="w-4/5  mr-10 p-4">
+    <div className="flex flex-col md:flex-row mx-10 mt-14 ml-10 md:mr-2 mr-15 pb-20">
+    
+    {/* Left-side */}
+        <div className="w-full md:w-4/5 mr-10 p-4">
 
-      {/* Bio  */}
+        {/* Bio  */}
 
-      <h2 className="text-4xl font-bold uppercase text-customPurple">{data.artist_name}</h2>
-      <div className="my-4">
-          <div className='text-md'>
-          {data.bio}
-          </div>
-      </div>
-
-      {/* Popular stream */}
-
-      <h2 className="text-4xl font-bold uppercase text-customPurple mt-7">Popular Streams</h2>
-      <div className="mt-6">
-        <div className="flex items-center my-6">
-            <span className="text-4xl text-customBlue mr-4 pt-2">
-                <ion-icon name="play-outline"></ion-icon>
-            </span>
-            <div className="flex justify-between flex-1">
-                <div>
-                    <div className="font-bold">Please Mr Postman | THE BEATLES</div>
-                    <div>TIMES SQUARE STATION</div>
-                </div>
-                <div className="font-bold text-gray-600">
-                    <span className="mr-2">2:00 / 07:42</span>
-                </div>
-            </div>
-        </div>
-        <div className="flex items-center my-6">
-            <span className="text-4xl text-customBlue mr-4 pt-2">
-                <ion-icon name="play-outline"></ion-icon>
-            </span>
-            <div className="flex justify-between flex-1">
-                <div>
-                    <div className="font-bold">Please Mr Postman | THE BEATLES</div>
-                    <div>TIMES SQUARE STATION</div>
-                </div>
-                <div className="font-bold text-gray-600">
-                    <span className="mr-2">2:00 / 07:42</span>
-                </div>
-            </div>
-        </div>
-        <div className="flex items-center my-6">
-            <span className="text-4xl text-customBlue mr-4 pt-2">
-                <ion-icon name="play-outline"></ion-icon>
-            </span>
-            <div className="flex justify-between flex-1">
-                <div>
-                    <div className="font-bold">Please Mr Postman | THE BEATLES</div>
-                    <div>TIMES SQUARE STATION</div>
-                </div>
-                <div className="font-bold text-gray-600">
-                    <span className="mr-2">2:00 / 07:42</span>
-                </div>
-            </div>
-        </div>
-        <div className="flex items-center my-6">
-            <span className="text-4xl text-customBlue mr-4 pt-2">
-                <ion-icon name="play-outline"></ion-icon>
-            </span>
-            <div className="flex justify-between flex-1">
-                <div>
-                    <div className="font-bold">Please Mr Postman | THE BEATLES</div>
-                    <div>TIMES SQUARE STATION</div>
-                </div>
-                <div className="font-bold text-gray-600">
-                    <span className="mr-2">2:00 / 07:42</span>
-                </div>
+        <h2 className="text-4xl font-bold uppercase text-customPurple">{data.artist_name}</h2>
+        <div className="my-4">
+            <div className='text-md'>
+            {data.bio}
             </div>
         </div>
 
-        <div class="flex gap-4">
-            <button class="border-black border w-1/3 text-xs py-1 rounded-md">Download the long bio</button>
-            <button class="border-black border w-1/3 text-xs py-1 rounded-md">Download the one sheet</button>
-            <button class="border-black border w-1/3 text-xs py-1 rounded-md">Download the short bio</button>
-        </div>
-        </div>
+        {/* Popular stream */}
 
-        {/* Live Performance */}
-        <h2 className="text-4xl font-bold uppercase text-customPurple mt-14">Live Performance</h2>
-        <div className="flex gap-4 my-8">
-        <Image src="/video1.jpg" alt="video" className="w-1/3" width={300} height={200}/>
-        <Image src="/video1.jpg" alt="video" className="w-1/3" width={300} height={200}/>
-        <Image src="/video1.jpg" alt="video" className="w-1/3" width={300} height={200}/>
-        </div>
+        <h2 className="text-4xl font-bold uppercase text-customPurple mt-7">Popular Streams</h2>
+        <div className="mt-6">
+            <div className="flex items-center my-6">
+                <span className="text-4xl text-customBlue mr-4 pt-2">
+                    <ion-icon name="play-outline"></ion-icon>
+                </span>
+                <div className="flex justify-between flex-1">
+                    <div>
+                        <div className="font-bold">Please Mr Postman | THE BEATLES</div>
+                        <div>TIMES SQUARE STATION</div>
+                    </div>
+                    <div className="font-bold text-gray-600">
+                        <span className="mr-2">2:00 / 07:42</span>
+                    </div>
+                </div>
+            </div>
+            <div className="flex items-center my-6">
+                <span className="text-4xl text-customBlue mr-4 pt-2">
+                    <ion-icon name="play-outline"></ion-icon>
+                </span>
+                <div className="flex justify-between flex-1">
+                    <div>
+                        <div className="font-bold">Please Mr Postman | THE BEATLES</div>
+                        <div>TIMES SQUARE STATION</div>
+                    </div>
+                    <div className="font-bold text-gray-600">
+                        <span className="mr-2">2:00 / 07:42</span>
+                    </div>
+                </div>
+            </div>
+            <div className="flex items-center my-6">
+                <span className="text-4xl text-customBlue mr-4 pt-2">
+                    <ion-icon name="play-outline"></ion-icon>
+                </span>
+                <div className="flex justify-between flex-1">
+                    <div>
+                        <div className="font-bold">Please Mr Postman | THE BEATLES</div>
+                        <div>TIMES SQUARE STATION</div>
+                    </div>
+                    <div className="font-bold text-gray-600">
+                        <span className="mr-2">2:00 / 07:42</span>
+                    </div>
+                </div>
+            </div>
+            <div className="flex items-center my-6">
+                <span className="text-4xl text-customBlue mr-4 pt-2">
+                    <ion-icon name="play-outline"></ion-icon>
+                </span>
+                <div className="flex justify-between flex-1">
+                    <div>
+                        <div className="font-bold">Please Mr Postman | THE BEATLES</div>
+                        <div>TIMES SQUARE STATION</div>
+                    </div>
+                    <div className="font-bold text-gray-600">
+                        <span className="mr-2">2:00 / 07:42</span>
+                    </div>
+                </div>
+            </div>
 
-        {/* InPress */}
-        <h2 className="text-4xl font-bold uppercase text-customPurple mt-10">In Press</h2>
-        <div className='mt-8'>
-            <div className='text-sm text-customBlue my-1 font-medium'>
-                <span className='text-black mr-4'>11.04.16</span>
-                Duane Eubanks Mini-Documentary Screening Opening Night at YoFiFest 2017
+            <div class="flex gap-4">
+                <button class="border-black border w-1/3 text-xs py-1 rounded-md">Download the long bio</button>
+                <button class="border-black border w-1/3 text-xs py-1 rounded-md">Download the one sheet</button>
+                <button class="border-black border w-1/3 text-xs py-1 rounded-md">Download the short bio</button>
             </div>
-            <div className='text-sm text-customBlue my-1 font-medium'>
-                <span className='text-black mr-4'>14.04.16</span>
-                Duane Eubanks sparkles on DE3: Live at Maxwell
             </div>
-            <div className='text-sm text-customBlue my-1 font-medium'>
-                <span className='text-black mr-4'>14.04.16</span>
-                Duane Eubanks sparkles on DE3: Live at Maxwell
+
+            {/* Live Performance */}
+            <h2 className="text-4xl font-bold uppercase text-customPurple mt-14">Live Performance</h2>
+            <div className="flex gap-4 my-8">
+            <Image src="/video1.jpg" alt="video" className="w-1/3" width={300} height={200}/>
+            <Image src="/video1.jpg" alt="video" className="w-1/3" width={300} height={200}/>
+            <Image src="/video1.jpg" alt="video" className="w-1/3" width={300} height={200}/>
             </div>
-            <div className='text-sm text-customBlue my-1 font-medium'>
-                <span className='text-black mr-4'>14.04.16</span>
-                Duane Eubanks sparkles on DE3: Live at Maxwell
+
+            {/* InPress */}
+            <h2 className="text-4xl font-bold uppercase text-customPurple mt-10">In Press</h2>
+            <div className='mt-8'>
+                <div className='text-sm text-customBlue my-1 font-medium'>
+                    <span className='text-black mr-4'>11.04.16</span>
+                    Duane Eubanks Mini-Documentary Screening Opening Night at YoFiFest 2017
+                </div>
+                <div className='text-sm text-customBlue my-1 font-medium'>
+                    <span className='text-black mr-4'>14.04.16</span>
+                    Duane Eubanks sparkles on DE3: Live at Maxwell
+                </div>
+                <div className='text-sm text-customBlue my-1 font-medium'>
+                    <span className='text-black mr-4'>14.04.16</span>
+                    Duane Eubanks sparkles on DE3: Live at Maxwell
+                </div>
+                <div className='text-sm text-customBlue my-1 font-medium'>
+                    <span className='text-black mr-4'>14.04.16</span>
+                    Duane Eubanks sparkles on DE3: Live at Maxwell
+                </div>
+                <div className='text-sm text-customBlue my-1 font-medium'>
+                    <span className='text-black mr-4'>14.04.16</span>
+                    Duane Eubanks sparkles on DE3: Live at Maxwell
+                </div>
+                <div className='text-sm text-customBlue my-1 font-medium'>
+                    <span className='text-black mr-4'>14.04.16</span>
+                    Duane Eubanks sparkles on DE3: Live at Maxwell
+                </div>
             </div>
-            <div className='text-sm text-customBlue my-1 font-medium'>
-                <span className='text-black mr-4'>14.04.16</span>
-                Duane Eubanks sparkles on DE3: Live at Maxwell
-            </div>
-            <div className='text-sm text-customBlue my-1 font-medium'>
-                <span className='text-black mr-4'>14.04.16</span>
-                Duane Eubanks sparkles on DE3: Live at Maxwell
-            </div>
-        </div>
         </div>
 
         {/* Right-Side Part */}
 
-        <div className="w-2/5  p-4 pl-10">
+        <div className="w-full md:w-2/5 p-4 pl-2">
         <h2 className="text-4xl font-bold uppercase text-customPurple">Follow on</h2>
         <div className='my-4 px-1 flex'>
           <Link href={data.youtube}>
@@ -172,7 +174,7 @@ const GenerateTemplate = ({ data }) => {
           </Link>
           <Link href={data.youtube}>
 
-            <span className='text-2xl text-customBlue mr-4 pt-2 '>
+            <span className='text-2xl text-customBlue ml-2 mr-4 pt-2 '>
                 <ion-icon name="logo-soundcloud"></ion-icon>
             </span>
           </Link>

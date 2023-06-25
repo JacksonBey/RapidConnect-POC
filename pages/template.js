@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Script from 'next/script';
 
 function Template() {
-
     
   return (
     <>
@@ -15,9 +14,10 @@ function Template() {
         src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
         strategy="lazyOnload"
       />
-      
-    <div className="flex mx-10 mt-14 ml-24 pb-20">
-        <div className="w-4/5  mr-10 p-4">
+
+    <div className="flex flex-col md:flex-row mx-10 mt-14 ml-10 md:mr-2 mr-15 pb-20">
+        {/* Left-side */}
+        <div className="w-full md:w-4/5 mr-10 p-4">
 
             {/* Bio  */}
 
@@ -141,7 +141,7 @@ function Template() {
 
         {/* Right-Side Part */}
 
-        <div className="w-2/5  p-4 pl-10">
+        <div className="w-full md:w-2/5 p-4 pl-10">
             <h2 className="text-4xl font-bold uppercase text-customPurple">Follow on</h2>
             <div className='my-4 px-1 flex'>
                 <span className='text-2xl text-customBlue mr-4 pt-2 '>
