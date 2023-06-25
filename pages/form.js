@@ -64,7 +64,7 @@ function ArtistForm() {
   };
 
   return (
-    <div className="container mx-auto mt-5 flex ">
+    <div className="container mx-auto mt-5 max-h-[80%] flex ">
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
