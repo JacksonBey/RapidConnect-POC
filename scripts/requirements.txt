@@ -2,11 +2,9 @@ fastapi
 uvicorn
 requests
 beautifulsoup4
-pinecone-sdk
+pinecone-io
 pydantic
-pinecone
 spacy
-os
-dotenv
-pathlib 
 numpy
+instaloader
+transformers

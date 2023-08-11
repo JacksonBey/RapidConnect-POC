@@ -1,5 +1,4 @@
 import instaloader
-import json
 
 def get_instagram_profile_data(username):
     L = instaloader.Instaloader()

@@ -45,3 +45,8 @@ def get_chat_response(prompt):
     response = tokenizer.decode(output[:, input_ids.shape[-1]:][0], skip_special_tokens=True)
     
     return response
+
+
+prompt = "Tell me a joke."
+response = get_chat_response(prompt)
+print(f"Response: {response}")

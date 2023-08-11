@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import GenerateTemplate from "../components/generateTemplate";
+import GenerateTemplate from "../utils/generateTemplate";
+import ScrapeUrlContent from "../utils/scrapeUrlContent";
 
 function ArtistForm() {
   const initialState = {
@@ -59,7 +60,7 @@ function ArtistForm() {
     // handle response/error here...
     // generateTemplate(payload);
     setHasSubmitted(true);
-    console.log('HAS SUBMITTED')
+    // scrapeUrlContent(formState.instagram)
 
   };
 

@@ -1,1 +1,1 @@
- web: uvicorn santEpkToPinecone:app --host 0.0.0.0 --port 5000
+ web: uvicorn santEpkToPinecone:app --host rapicConnect.eba-386bgsxd.us-west-2.elasticbeanstalk.com  --port 5000
