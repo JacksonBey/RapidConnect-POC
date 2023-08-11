@@ -4,7 +4,7 @@ import Script from 'next/script';
 import Link from 'next/link';
 import { Configuration, OpenAIApi } from "openai";
 const configuration = new Configuration({
-    organization: "org-sY6edZISImjEbAwKeEBD5lLZ",
+    organization: process.env.NEXT_PUBLIC_OPENAI_ORG_KEY,
     apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
 });
 
@@ -26,58 +26,15 @@ const GenerateTemplate = ({ data }) => {
     useEffect(() => {
         const prompt = `Generate a compelling artist bio for a ${data.genres[0]} musician named ${data.artist_name}, who is known for their ${data.special_characteristics[0]}.`
         const fetchData = async () => {
-          // your OpenAI API call logic here
-        //   const result = await openai.createCompletion("text-davinci-002", {
-        //     prompt: prompt ,
-        //     temperature: 0.5,
-        //     max_tokens: 60,
-        //     top_p: 1.0,
-        //     frequency_penalty: 0.5,
-        //     presence_penalty: 0.0,
-        //    });
-           const result = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt:  prompt,
-            temperature: 0.7
-          });
-          setResponse(result);
+            const result = await openai.createCompletion({
+                model: "text-davinci-003",
+                prompt:  prompt,
+                temperature: 0.7
+            });
+            setResponse(result);
         };
         fetchData();
       }, [data]);
-
-    // const response = await openai.createCompletion("text-davinci-002", {
-    //     prompt: `Generate a compelling artist bio for a ${genres[0]} musician named ${artist_name}, who is known for their ${special_characteristics[0]}.` ,
-    //     temperature: 0.5,
-    //     max_tokens: 60,
-    //     top_p: 1.0,
-    //     frequency_penalty: 0.5,
-    //     presence_penalty: 0.0,
-    // });
-    // use data to generate content (bio)  <- OpenAI
-    // incorporate webscrape into the prompt
-    //
-
-
-    // {
-    //     "warning": "This model version is deprecated. Migrate before January 4, 2024 to avoid disruption of service. Learn more https://platform.openai.com/docs/deprecations",
-    //     "id": "cmpl-7mC97hMs9H5rah1kF58UVB86yWREy",
-    //     "object": "text_completion",
-    //     "created": 1691720789,
-    //     "model": "text-davinci-003",
-    //     "choices": [
-    //       {
-    //         "text": "\n\nfasdfa is a musician from the small town of asdf",
-    //         "index": 0,
-    //         "logprobs": null,
-    //         "finish_reason": "length"
-    //       }
-    //     ],
-    //     "usage": {
-    //       "prompt_tokens": 29,
-    //       "completion_tokens": 16,
-    //       "total_tokens": 45
-    //     }
-    //   }
       
     console.log('response: ', response)
 
