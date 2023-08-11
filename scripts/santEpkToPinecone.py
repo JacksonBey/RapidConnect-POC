@@ -23,10 +23,6 @@ app = FastAPI()
 # pinecone_index_name = os.getenv('PINECONE_INDEX_NAME')
 # pinecone_enviroment = os.getenv('PINECONE_ENVIROMENT')
 
-pinecone_key = "ea5d0414-36b9-4d8c-92f0-4ecc903aceb8"
-pinecone_index_name = "rapid-connect-poc"
-pinecone_enviroment = "northamerica-northeast1-gcp"
-
 
 
 pinecone.init(api_key=pinecone_key, environment=pinecone_enviroment)
