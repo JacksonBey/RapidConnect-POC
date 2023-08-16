@@ -3,6 +3,9 @@ import axios from "axios";
 import GenerateTemplate from "../utils/generateTemplate";
 import ScrapeUrlContent from "../utils/scrapeUrlContent";
 
+import SelectionRow from "../components/form/selectionRow";
+
+
 function ArtistForm() {
   const initialState = {
     artist_name: "",
@@ -13,10 +16,10 @@ function ArtistForm() {
     instagram: "",
     blog: ""
   };
-
   const [formState, setFormState] = useState(initialState);
   const [currentGenre, setCurrentGenre] = useState("");
   const [currentChar, setCurrentChar] = useState("");
+  const [selectedImage, setSelectedImage] = useState("");
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleInputChange = (event, field) => {
@@ -53,6 +56,20 @@ function ArtistForm() {
     });
   };
 
+  const images = [
+    {title: "Funny", url: 'https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png'},
+    {title: "Orange", url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Convex_lens_%28magnifying_glass%29_and_upside-down_image.jpg/341px-Convex_lens_%28magnifying_glass%29_and_upside-down_image.jpg'},
+    {title: "Silly", url: 'https://media.istockphoto.com/id/1322277517/photo/wild-grass-in-the-mountains-at-sunset.jpg?s=612x612&w=0&k=20&c=6mItwwFFGqKNKEAzv0mv6TaxhLN3zSE43bWmFN--J5w='},
+  ]
+
+  const handleImageSelect = (title) => {
+    setSelectedImage(title);
+    setFormState({
+      ...formState,
+      selectedImage: title,
+    });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const payload = formState;
@@ -63,6 +80,8 @@ function ArtistForm() {
     // scrapeUrlContent(formState.instagram)
 
   };
+
+  console.log('SelectionRow: ', SelectionRow)
 
   return (
     <div className="container mx-auto mt-5 max-h-[80%] flex ">
@@ -160,11 +179,20 @@ function ArtistForm() {
           </label>
           <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="blog" onChange={handleInputChange} />
         </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Template Selection:
+          </label>
+          {SelectionRow && <SelectionRow onSelect={handleImageSelect} images={images} />}
+        </div>
+
         <div className="flex items-center justify-between">
           <button className="bg-[#0d3d56] hover:bg-[#3c6478] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
             Submit
           </button>
         </div>
+
       </form>
       <div className="">
         {hasSubmitted &&  
